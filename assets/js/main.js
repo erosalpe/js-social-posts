@@ -243,7 +243,7 @@ for(let i = 0; i < posts.length; i++){
 
     postImageFile.setAttribute("src", `${posts[i].media}`);
 
-    postLikeNumber.innerText = Math.floor(Math.random() * 99) + 69;
+    postLikeNumber.innerText = `${posts[i].likes}`
 
     postLikeCta.addEventListener("click", function(){
         if(postLikeButton.classList.contains("like-button--liked") === false){
@@ -309,3 +309,7 @@ for(let i = 0; i < posts.length; i++){
 
 
 }
+
+
+
+let anno = posts[0]
