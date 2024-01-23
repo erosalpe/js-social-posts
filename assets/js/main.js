@@ -156,7 +156,6 @@ listaPost.appendChild(postHtml);
 
 
 for(let i = 0; i < posts.length; i++){
-    console.log(i);
 
     const listaPost = document.getElementById("container");
 
@@ -230,9 +229,12 @@ for(let i = 0; i < posts.length; i++){
 
     if (posts[i].author.image != null){
         profilePic.setAttribute("src", `${posts[i].author.image}`);
+        profilePic.alt = `${posts[i].author.name}` + " Profile picture";
+        
         //console.log(posts[i].author.image);
     } else {
         profilePic.setAttribute("src", "https://unsplash.it/300/300?image=27");
+        profilePic.alt = `${posts[i].author.name}` + " Profile picture";
     }
 
     postMetaAuthor.innerText = `${posts[i].author.name}`;
@@ -242,6 +244,7 @@ for(let i = 0; i < posts.length; i++){
     postText.innerText = `${posts[i].content}`;
 
     postImageFile.setAttribute("src", `${posts[i].media}`);
+    postImageFile.alt = "Post Image";
 
     postLikeNumber.innerText = `${posts[i].likes}`
 
@@ -312,4 +315,3 @@ for(let i = 0; i < posts.length; i++){
 
 
 
-let anno = posts[0]
