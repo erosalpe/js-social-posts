@@ -56,6 +56,9 @@ const posts = [
     }
 ];
 
+
+const postLikedId = [];
+
 /*
 const listaPost = document.getElementById("container");
 
@@ -246,9 +249,14 @@ for(let i = 0; i < posts.length; i++){
         if(postLikeButton.classList.contains("like-button--liked") === false){
             postLikeNumber.innerText = parseInt(postLikeNumber.innerText) + 1;
             postLikeButton.classList.toggle("like-button--liked");
+            postLikedId.push(posts[i].id);
+            console.log(postLikedId);
         } else {
+            const index = postLikedId.indexOf(posts[i].id);
             postLikeNumber.innerText = parseInt(postLikeNumber.innerText) - 1;
             postLikeButton.classList.toggle("like-button--liked");
+            postLikedId.splice(index, 1)
+            console.log(postLikedId);
         }
         
     });
