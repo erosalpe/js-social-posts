@@ -239,7 +239,7 @@ for(let i = 0; i < posts.length; i++){
 
     postMetaAuthor.innerText = `${posts[i].author.name}`;
 
-    postMetaTime.innerText = `${posts[i].created}`;
+    postMetaTime.innerText = dateITA(posts[i].created);
 
     postText.innerText = `${posts[i].content}`;
 
@@ -263,24 +263,6 @@ for(let i = 0; i < posts.length; i++){
         }
         
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     postLikeButton.appendChild(postLikeButtonIcon);
     postLikeButton.appendChild(postLikeText);
     postLikeCta.appendChild(postLikeButton);
@@ -299,18 +281,29 @@ for(let i = 0; i < posts.length; i++){
     postHtml.appendChild(postImg);
     postHtml.appendChild(postFooter);
     listaPost.appendChild(postHtml);
+}
 
-    
-
-
-
-
-
-
-
-
-
-
+function dateITA(data){
+    const arrayData = Array.from(data);
+    let anno = "";
+    let mese = "";
+    let giorno = "";
+    let dataItaliana = "";
+    for(let i = 0; i < arrayData.length; i++){
+        if(arrayData[i] == "-"){
+            arrayData.splice(i, 1);
+        }
+        if(i < 4){
+            anno = anno + arrayData[i];
+        } else if (i > 3 && i < 6){
+            mese = mese + arrayData[i];
+        } else{
+            giorno = giorno + arrayData[i];
+        }
+        console.log(arrayData);
+    }
+    dataItaliana = `${giorno}/${mese}/${anno}`
+    return dataItaliana;
 }
 
 
